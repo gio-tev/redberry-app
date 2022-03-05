@@ -1,0 +1,35 @@
+@import '../index.css';
+
+.inputs-container {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  width: 455px;
+  top: 390px;
+}
+
+.inputs {
+  width: 100%;
+  justify-self: center;
+}
+
+.inputs-container input {
+  width: 100%;
+  height: 54px;
+  margin-top: 2.5rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid var(--primary-stroke);
+  padding-left: 2.5rem;
+  font-size: 16px;
+  line-height: 17px;
+}
+
+.inputs-container p {
+  font-family: Montserrat;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 13px;
+  color: var(--redberry-red);
+  padding-left: 2.5rem;
+}

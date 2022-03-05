@@ -1,13 +1,16 @@
 import { NavLink } from 'react-router-dom';
-import Button from './Button';
 import styles from './Pagination.module.css';
 
 const Pagination = props => {
   return (
     <div className={styles.pagination}>
-      <Button onClick={props.onBack} className={styles['btn-pagination']}>
+      <button
+        type="button"
+        onClick={props.onBack}
+        className={styles['btn-pagination']}
+      >
         &#60;
-      </Button>
+      </button>
 
       <NavLink
         to="/personal-information"
@@ -50,9 +53,13 @@ const Pagination = props => {
         }
       ></NavLink>
 
-      <Button onClick={props.onNext} className={styles['btn-pagination']}>
+      <button
+        type="button"
+        onClick={props.onNext}
+        className={styles['btn-pagination']}
+      >
         &#62;
-      </Button>
+      </button>
     </div>
   );
 };

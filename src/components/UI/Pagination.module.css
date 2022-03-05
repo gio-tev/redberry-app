@@ -4,7 +4,9 @@
   display: flex;
   gap: 0 1.3rem;
   position: absolute;
-  top: 904px;
+  top: 33rem;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .pagination-link {
