@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Pagination from './Pagination';
+import styles from './PersonalInput.module.css';
 
 const PersonalInput = () => {
   const [name, setName] = useState('');
@@ -83,7 +84,6 @@ const PersonalInput = () => {
         onChange={nameChange}
         value={name}
         type={'text'}
-        id={'name'}
         placeholder={'First Name'}
       />
       {nameIsEmpty && <p>* First name is required</p>}
@@ -93,7 +93,6 @@ const PersonalInput = () => {
         onChange={lastNameChange}
         value={lastName}
         type={'text'}
-        id={'last name'}
         placeholder={'Last Name'}
       />
       {lastNameIsEmpty && <p>* Last name is required</p>}
@@ -105,7 +104,6 @@ const PersonalInput = () => {
         onChange={emailChange}
         value={email}
         type={'email'}
-        id={'email'}
         placeholder={'E Mail'}
       />
       {emailIsEmpty && <p>* Email is required</p>}
@@ -115,11 +113,14 @@ const PersonalInput = () => {
         onChange={phoneNumberChange}
         value={phoneNumber}
         type={'text'}
-        id={'number'}
         placeholder={'+995 5__ __ __ __'}
       />
       {!phoneNumberIsValid && <p>* Invalid phone number</p>}
-      <Pagination onBack={handleBackwardClick} onNext={handleForwardClick} />
+      <Pagination
+        className={styles['custom-pagination']}
+        onBack={handleBackwardClick}
+        onNext={handleForwardClick}
+      />
     </form>
   );
 };

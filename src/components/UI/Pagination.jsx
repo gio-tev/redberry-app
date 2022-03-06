@@ -1,15 +1,17 @@
 import { NavLink } from 'react-router-dom';
 import styles from './Pagination.module.css';
+import Previous from '../../assets/Previous.png';
+import Next from '../../assets/Next.png';
 
 const Pagination = props => {
   return (
-    <div className={styles.pagination}>
+    <nav className={`${styles.pagination} ${props.className}`}>
       <button
         type="button"
         onClick={props.onBack}
         className={styles['btn-pagination']}
       >
-        &#60;
+        <img src={Previous} alt="Previos" />
       </button>
 
       <NavLink
@@ -58,9 +60,9 @@ const Pagination = props => {
         onClick={props.onNext}
         className={styles['btn-pagination']}
       >
-        &#62;
+        <img src={Next} alt="Next" />
       </button>
-    </div>
+    </nav>
   );
 };
 

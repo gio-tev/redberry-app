@@ -4,7 +4,8 @@
   display: flex;
   gap: 0 1.3rem;
   position: absolute;
-  top: 33rem;
+  /* top: 33rem; */
+  /* bottom: -11rem; */
   left: 50%;
   transform: translateX(-50%);
 }
@@ -28,9 +29,10 @@
 .btn-pagination {
   width: 1.3rem;
   height: 1.3rem;
+  border: none;
   border-radius: 50%;
-  border: 3px solid var(--redberry-red);
-  color: var(--redberry-red);
   cursor: pointer;
-  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
