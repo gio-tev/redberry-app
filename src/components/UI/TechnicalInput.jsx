@@ -1,10 +1,13 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useContext } from 'react';
+import { AppContext } from '../../store/AppContext';
 import { useNavigate } from 'react-router-dom';
 import Pagination from './Pagination';
 import styles from './TechnicalInput.module.css';
 import Remove from '../../assets/Remove.png';
 
 const TechnicalInput = () => {
+  const { dispatch } = useContext(AppContext);
+
   const [skills, setSkills] = useState([]);
   const [selectedSkills, setSelectedSkills] = useState([]);
   const [inputRequired, setInputRequired] = useState(false);
@@ -51,14 +54,14 @@ const TechnicalInput = () => {
           ...prevState,
           {
             title: selectedRef.current.value,
-            experince: inputRef.current.value,
+            experience: inputRef.current.value,
           },
         ];
       } else {
         return [
           {
             title: selectedRef.current.value,
-            experince: inputRef.current.value,
+            experience: inputRef.current.value,
           },
         ];
       }
@@ -85,18 +88,23 @@ const TechnicalInput = () => {
       for (let j = 0; j < skills.length; j++) {
         if (selectedSkills[i].title === skills[j].title) {
           modifiedDataForSend.push({
-            experince: selectedSkills[i].experince,
             id: skills[j].id,
+            experience: +selectedSkills[i].experience,
           });
         }
       }
     }
 
     if (modifiedDataForSend.length === 0) {
-      console.log(modifiedDataForSend);
       return setNoSkill(true);
     } else setNoSkill(false);
 
+    dispatch({
+      type: 'TECHNICAL_INPUT',
+      payload: {
+        skills: modifiedDataForSend,
+      },
+    });
     // Send data to global state////////////////////////////////////////////////
     navigate('/covid');
   };
@@ -137,7 +145,7 @@ const TechnicalInput = () => {
                 title={skill.title}
                 type="button"
               >
-                <img onClick={handleRemoveSkill} src={Remove} />
+                <img onClick={handleRemoveSkill} src={Remove} alt="remove" />
               </button>
             </div>
           );

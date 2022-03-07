@@ -1,9 +1,12 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useContext } from 'react';
+import { AppContext } from '../../store/AppContext';
 import { useNavigate } from 'react-router-dom';
 import Pagination from './Pagination';
 import styles from './InsightsInput.module.css';
 
 const InsightsInput = () => {
+  const { dispatch } = useContext(AppContext);
+
   const [yesAttend, setYesAttend] = useState(false);
 
   const [attendDevNotChecked, setAttendDevNotChecked] = useState(false);
@@ -37,6 +40,32 @@ const InsightsInput = () => {
     if (!somethingSpecialRef.current.value) {
       return setNoSpecialValue(true);
     }
+
+    const modifiedInsightsDataForSend = {
+      will_organize_devtalk: false,
+      devtalk_topic: '',
+      something_special: '',
+    };
+
+    if (yesAttendRef.current.checked)
+      modifiedInsightsDataForSend.will_organize_devtalk = true;
+    if (noAttendRef.current.checked)
+      modifiedInsightsDataForSend.will_organize_devtalk = false;
+    if (yesAttendRef.current.checked && speakAboutRef.current.value)
+      modifiedInsightsDataForSend.devtalk_topic = speakAboutRef.current.value;
+    if (somethingSpecialRef.current.value)
+      modifiedInsightsDataForSend.something_special =
+        somethingSpecialRef.current.value;
+
+    dispatch({
+      type: 'INSIGHTS_INPUT',
+      payload: {
+        will_organize_devtalk:
+          modifiedInsightsDataForSend.will_organize_devtalk,
+        devtalk_topic: modifiedInsightsDataForSend.devtalk_topic,
+        something_special: modifiedInsightsDataForSend.something_special,
+      },
+    });
     // Send data to global state////////////////////////////////////////////////
     navigate('/submit');
   };

@@ -1,9 +1,12 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { AppContext } from '../../store/AppContext';
 import { useNavigate } from 'react-router-dom';
 import Pagination from './Pagination';
 import styles from './PersonalInput.module.css';
 
 const PersonalInput = () => {
+  const { dispatch } = useContext(AppContext);
+
   const [name, setName] = useState('');
   const [nameIsEmpty, setNameIsEmpty] = useState(false);
   const [nameIsValid, setNameIsValid] = useState(true);
@@ -67,11 +70,21 @@ const PersonalInput = () => {
     } else setEmailIsValid(true);
 
     if (
-      phoneNumber.trim().length !== 13 ||
-      !phoneNumber.trim().startsWith('+995')
+      (phoneNumber && phoneNumber.trim().length !== 13) ||
+      (phoneNumber && !phoneNumber.trim().startsWith('+995'))
     ) {
       return setPhoneNumberIsValid(false);
     } else setPhoneNumberIsValid(true);
+    ////////////////////////////////////////////////////////////////////////////
+    dispatch({
+      type: 'PERSONAL_INPUT',
+      payload: {
+        first_name: name,
+        last_name: lastName,
+        email: email,
+        phone: phoneNumber,
+      },
+    });
 
     // Send data to global state
     navigate('/technical-skillset');

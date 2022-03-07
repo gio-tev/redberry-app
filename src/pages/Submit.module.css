@@ -8,10 +8,10 @@
   gap: 1.5rem;
   width: 1920px;
   height: 1080px;
-  /* width: 100vw;
-  height: 100vh; */
   background-image: var(--primary-bg);
   background-size: cover;
+  /* width: 100vw;
+  height: 100vh; */
 }
 
 /* .submit::after {

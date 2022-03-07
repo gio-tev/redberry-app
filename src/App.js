@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import PersonalContextProvider from './store/PersonalContext';
+import AppContextProvider from './store/AppContext';
 import Welcome from './pages/Welcome';
 import PersonalInformation from './pages/PersonalInformation';
 import TechnicalSkillset from './pages/TechnicalSkillset';
@@ -9,7 +9,7 @@ import Submit from './pages/Submit';
 
 function App() {
   return (
-    <PersonalContextProvider>
+    <AppContextProvider>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Welcome />} />
@@ -23,7 +23,7 @@ function App() {
           <Route path="/submit" element={<Submit />} />
         </Routes>
       </BrowserRouter>
-    </PersonalContextProvider>
+    </AppContextProvider>
   );
 }
 

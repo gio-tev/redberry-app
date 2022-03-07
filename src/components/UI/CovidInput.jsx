@@ -1,9 +1,12 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useContext } from 'react';
+import { AppContext } from '../../store/AppContext';
 import { useNavigate } from 'react-router-dom';
 import Pagination from './Pagination';
 import styles from './CovidInput.module.css';
 
 const CovidInput = () => {
+  const { dispatch } = useContext(AppContext);
+
   const [hadCovid, setHadCovid] = useState(false);
   const [vaccinated, setVaccinated] = useState(false);
 
@@ -65,6 +68,7 @@ const CovidInput = () => {
     if (yesVaccinated.current.checked && !lastVaccinated.current.value) {
       return setLastVaccinatedNotChecked(true);
     }
+
     const modifiedCovidDataForSend = {
       work_preference: '',
       had_covid: false,
@@ -74,21 +78,38 @@ const CovidInput = () => {
     };
 
     // take correct data ////////////////////////////////////////////////
-    // if (officeRef.current.checked)
-    //   modifiedCovidDataForSend.work_preference = officeRef.current.id;
-    // if (homeRef.current.checked)
-    //   modifiedCovidDataForSend.work_preference = homeRef.current.id;
-    // if (hybridRef.current.checked)
-    //   modifiedCovidDataForSend.work_preference = hybridRef.current.id;
-    // if (yesCovid.current.checked) modifiedCovidDataForSend.had_covid = true;
-    // if (whenCovid.current.value)
-    //   modifiedCovidDataForSend.had_covid_at = whenCovid.current.value;
-    // if (yesVaccinated.current.checked)
-    //   modifiedCovidDataForSend.vaccinated = true;
-    // if (lastVaccinated.current.value)
-    //   modifiedCovidDataForSend.vaccinated_at = lastVaccinated.current.value;
+    if (officeRef.current.checked)
+      modifiedCovidDataForSend.work_preference = officeRef.current.id;
+    if (homeRef.current.checked)
+      modifiedCovidDataForSend.work_preference = homeRef.current.id;
+    if (hybridRef.current.checked)
+      modifiedCovidDataForSend.work_preference = hybridRef.current.id;
+
+    if (yesCovid.current.checked) modifiedCovidDataForSend.had_covid = true;
+    if (noCovid.current.checked) modifiedCovidDataForSend.had_covid = false;
+    if (yesCovid.current.checked && whenCovid.current.value)
+      modifiedCovidDataForSend.had_covid_at = whenCovid.current.value;
+
+    if (yesVaccinated.current.checked)
+      modifiedCovidDataForSend.vaccinated = true;
+    if (noVaccinated.current.checked)
+      modifiedCovidDataForSend.vaccinated = false;
+    if (yesVaccinated.current.checked && lastVaccinated.current.value)
+      modifiedCovidDataForSend.vaccinated_at = lastVaccinated.current.value;
+
+    console.log(modifiedCovidDataForSend);
 
     // Send data to global state////////////////////////////////////////////////
+    dispatch({
+      type: 'COVID_INPUT',
+      payload: {
+        work_preference: modifiedCovidDataForSend.work_preference,
+        had_covid: modifiedCovidDataForSend.had_covid,
+        had_covid_at: modifiedCovidDataForSend.had_covid_at,
+        vaccinated: modifiedCovidDataForSend.vaccinated,
+        vaccinated_at: modifiedCovidDataForSend.vaccinated_at,
+      },
+    });
     navigate('/redberrian-insights');
   };
 
