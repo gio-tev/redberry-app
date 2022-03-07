@@ -5,6 +5,7 @@ import PersonalInformation from './pages/PersonalInformation';
 import TechnicalSkillset from './pages/TechnicalSkillset';
 import Covid from './pages/Covid';
 import RedberrianInsights from './pages/RedberrianInsights';
+import Submit from './pages/Submit';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/technical-skillset" element={<TechnicalSkillset />} />
           <Route path="/covid" element={<Covid />} />
           <Route path="/redberrian-insights" element={<RedberrianInsights />} />
+          <Route path="/submit" element={<Submit />} />
         </Routes>
       </BrowserRouter>
     </PersonalContextProvider>
