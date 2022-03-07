@@ -1,8 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import PersonalContextProvider from './store/PersonalContext';
 import Welcome from './pages/Welcome';
 import PersonalInformation from './pages/PersonalInformation';
 import TechnicalSkillset from './pages/TechnicalSkillset';
-import PersonalContextProvider from './store/PersonalContext';
+import Covid from './pages/Covid';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
             element={<PersonalInformation />}
           />
           <Route path="/technical-skillset" element={<TechnicalSkillset />} />
+          <Route path="/covid" element={<Covid />} />
         </Routes>
       </BrowserRouter>
     </PersonalContextProvider>

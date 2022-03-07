@@ -4,8 +4,6 @@
   display: flex;
   gap: 0 1.3rem;
   position: absolute;
-  /* top: 33rem; */
-  /* bottom: -11rem; */
   left: 50%;
   transform: translateX(-50%);
 }

@@ -110,7 +110,7 @@ const TechnicalInput = () => {
       </select>
 
       <input
-        className={styles.input}
+        // className={styles.input}
         ref={inputRef}
         type="number"
         placeholder="Experience Duration in Years"
