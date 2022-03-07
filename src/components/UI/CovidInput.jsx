@@ -65,13 +65,15 @@ const CovidInput = () => {
     if (yesVaccinated.current.checked && !lastVaccinated.current.value) {
       return setLastVaccinatedNotChecked(true);
     }
-    // const modifiedCovidDataForSend = {
-    //   work_preference: '',
-    //   had_covid: false,
-    //   had_covid_at: '',
-    //   vaccinated: false,
-    //   vaccinated_at: '',
-    // };
+    const modifiedCovidDataForSend = {
+      work_preference: '',
+      had_covid: false,
+      had_covid_at: '',
+      vaccinated: false,
+      vaccinated_at: '',
+    };
+
+    // take correct data ////////////////////////////////////////////////
     // if (officeRef.current.checked)
     //   modifiedCovidDataForSend.work_preference = officeRef.current.id;
     // if (homeRef.current.checked)
