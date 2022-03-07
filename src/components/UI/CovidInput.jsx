@@ -13,10 +13,10 @@ const CovidInput = () => {
   const officeRef = useRef();
   const homeRef = useRef();
   const hybridRef = useRef();
-  const yesCovid = useRef(); ///////////////////
+  const yesCovid = useRef();
   const noCovid = useRef();
   const whenCovid = useRef();
-  const yesVaccinated = useRef(); //////////////////////////
+  const yesVaccinated = useRef();
   const noVaccinated = useRef();
   const lastVaccinated = useRef();
 
@@ -59,14 +59,12 @@ const CovidInput = () => {
     if (lastVaccinated.current.value)
       modifiedCovidDataForSend.vaccinated_at = lastVaccinated.current.value;
 
-    console.log(modifiedCovidDataForSend);
     // Send data to global state////////////////////////////////////////////////
     navigate('/redberrian-insights');
   };
 
   return (
     <form className={styles.form} noValidate>
-      {/* <div className={styles['inputs-container']}> */}
       <div className={styles.inputs}>
         <h2>How would you prefer to work?</h2>
         <div className={styles['input-label-container']}>
@@ -138,7 +136,6 @@ const CovidInput = () => {
           <input ref={lastVaccinated} type="date" />
         </div>
       )}
-      {/* </div> */}
 
       <Pagination
         className={styles['custom-pagination']}

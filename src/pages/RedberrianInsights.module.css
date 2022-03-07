@@ -1,0 +1,37 @@
+@import '../index.css';
+
+.insights-container {
+  /* border: 1px solid red; */
+
+  /* display: flex;
+  justify-content: center; */
+
+  /* position: absolute; */
+  /* width: 455px; */
+  /* width: 65rem; */
+  width: 55rem;
+  /* top: 350px; */
+}
+
+.inputs {
+  width: 100%;
+  /* justify-self: center; */
+}
+
+.insights-container textarea[id='1'] {
+  width: 535px;
+  height: 122px;
+  border: 1px solid var(--primary-stroke);
+  padding: 2rem 0 0 1rem;
+}
+.insights-container textarea[id='2'] {
+  width: 535px;
+  height: 89px;
+  border: 1px solid var(--primary-stroke);
+  padding: 2rem 0 0 1rem;
+}
+
+/* .custom-title {
+  font-size: 62px;
+} */
+/* ??????????? */

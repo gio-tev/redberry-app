@@ -1,9 +1,9 @@
 .form {
   /* border: 2px solid red; */
+  /* padding-right: 8rem; */
   position: absolute;
   top: 24rem;
-  padding-left: 8rem;
-  padding-right: 8rem;
+  padding-left: 10rem;
 }
 
 .form h2 {
@@ -18,9 +18,9 @@
 }
 
 /* .inputs-container {
-  display: flex;
-  flex-direction: column;
-} */
+    display: flex;
+    flex-direction: column;
+  } */
 
 .inputs {
   margin-bottom: 3.5rem;
@@ -44,11 +44,6 @@
   line-height: 17px;
 }
 
-/* .text {
-  height: 54px;
-} */
-
 .custom-pagination {
-  padding-bottom: 5rem;
-  padding-left: 24rem;
+  padding: 2rem 0 5rem 8rem;
 }
