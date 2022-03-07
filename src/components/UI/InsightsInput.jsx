@@ -33,16 +33,12 @@ const InsightsInput = () => {
 
       <div className={styles.inputs}>
         <h2>What would you speak about at Devtalk?</h2>
-        <textarea name="" id="1">
-          I would...
-        </textarea>
+        <textarea placeholder="I would..." id="1" />
       </div>
 
       <div className={styles.inputs}>
         <h2>Tell us something special</h2>
-        <textarea name="" id="2">
-          I...
-        </textarea>
+        <textarea placeholder="I..." id="2" />
       </div>
 
       <Pagination
