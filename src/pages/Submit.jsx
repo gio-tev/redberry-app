@@ -6,8 +6,14 @@ import styles from './Submit.module.css';
 
 const Submit = () => {
   const { state } = useContext(AppContext);
-  console.log(state);
-  const [thanks, setThanks] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+
+  const skill = structuredClone(state);
+
+  for (const [key, value] of Object.entries(skill)) {
+    if (value === '') delete skill[key];
+  }
+
   const navigate = useNavigate();
 
   const handleSubmitData = () => {
@@ -19,23 +25,22 @@ const Submit = () => {
           headers: {
             'Content-Type': 'Accept: application/json',
           },
-          body: JSON.stringify(state),
+          body: JSON.stringify(skill),
         }
       );
       console.log(response);
     };
+
     sendSkill();
 
-    // send data to API here///////////////////////////////////////////////////////
+    setSubmitted(true);
 
-    setThanks(true);
-
-    // setTimeout(() => {
-    //   navigate('/');
-    // }, 3000);
+    setTimeout(() => {
+      navigate('/');
+    }, 3000);
   };
 
-  if (thanks) {
+  if (submitted) {
     return <Thanks />;
   }
 

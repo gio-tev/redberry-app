@@ -37,6 +37,9 @@ const mainReducer = (state, action) => {
   if (action.type === 'INSIGHTS_INPUT') {
     return { ...state, ...action.payload };
   }
+  if (action.type === 'SELECTED_SKILLS') {
+    return { ...state, ...action.payload };
+  }
 };
 
 const AppContextProvider = props => {

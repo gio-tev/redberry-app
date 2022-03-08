@@ -105,7 +105,7 @@ const TechnicalInput = () => {
         skills: modifiedDataForSend,
       },
     });
-    // Send data to global state////////////////////////////////////////////////
+
     navigate('/covid');
   };
 
@@ -123,7 +123,7 @@ const TechnicalInput = () => {
         type="number"
         placeholder="Experience Duration in Years"
       />
-      {inputRequired && <p>Please enter your experince</p>}
+      {inputRequired && <p>Please enter your experience</p>}
       {sameSkills && <p>Selecting same skills is not allowed</p>}
       {noSkill && <p>Please select at least one skill</p>}
 

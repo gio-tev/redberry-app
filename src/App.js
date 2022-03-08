@@ -6,6 +6,7 @@ import TechnicalSkillset from './pages/TechnicalSkillset';
 import Covid from './pages/Covid';
 import RedberrianInsights from './pages/RedberrianInsights';
 import Submit from './pages/Submit';
+import SubmittedApplications from './pages/SubmittedApplications';
 
 function App() {
   return (
@@ -21,6 +22,10 @@ function App() {
           <Route path="/covid" element={<Covid />} />
           <Route path="/redberrian-insights" element={<RedberrianInsights />} />
           <Route path="/submit" element={<Submit />} />
+          <Route
+            path="/submitted-applications"
+            element={<SubmittedApplications />}
+          />
         </Routes>
       </BrowserRouter>
     </AppContextProvider>
