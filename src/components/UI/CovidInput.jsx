@@ -5,6 +5,9 @@ import Pagination from './Pagination';
 import styles from './CovidInput.module.css';
 
 const CovidInput = () => {
+  const stored = JSON.parse(window.localStorage.getItem('covid'));
+  console.log(stored);
+
   const { dispatch } = useContext(AppContext);
 
   const [hadCovid, setHadCovid] = useState(false);
@@ -77,7 +80,6 @@ const CovidInput = () => {
       vaccinated_at: '',
     };
 
-    // take correct data ////////////////////////////////////////////////
     if (officeRef.current.checked)
       modifiedCovidDataForSend.work_preference = officeRef.current.id;
     if (homeRef.current.checked)
@@ -97,9 +99,6 @@ const CovidInput = () => {
     if (yesVaccinated.current.checked && lastVaccinated.current.value)
       modifiedCovidDataForSend.vaccinated_at = lastVaccinated.current.value;
 
-    console.log(modifiedCovidDataForSend);
-
-    // Send data to global state////////////////////////////////////////////////
     dispatch({
       type: 'COVID_INPUT',
       payload: {
@@ -110,6 +109,46 @@ const CovidInput = () => {
         vaccinated_at: modifiedCovidDataForSend.vaccinated_at,
       },
     });
+
+    // let office;
+    // let home;
+    // let hybrid;
+    // let covidYes;
+    // let covidNo;
+    // let covidWhen;
+    // let vaccinatedYes;
+    // let vaccinatedNo;
+    // let vaccinatedLast;
+
+    // if (officeRef.current.checked) office = officeRef.current.checked;
+    // if (homeRef.current.checked) home = homeRef.current.checked;
+    // if (hybridRef.current.checked) hybrid = hybridRef.current.checked;
+    // if (yesCovid.current.checked) covidYes = yesCovid.current.checked;
+    // if (noCovid.current.checked) covidNo = noCovid.current.checked;
+    // if (yesCovid.current.checked && whenCovid.current.value)
+    //   covidWhen = whenCovid.current.value;
+    // if (yesVaccinated.current.checked)
+    //   vaccinatedYes = yesVaccinated.current.checked;
+    // if (noVaccinated.current.checked)
+    //   vaccinatedNo = noVaccinated.current.checked;
+    // if (yesVaccinated.current.checked && lastVaccinated.current.value)
+    //   vaccinatedLast = lastVaccinated.current.value;
+
+    // window.localStorage.setItem(
+    //   'covid',
+    //   JSON.stringify({
+    //     office,
+    //     home,
+    //     hybrid,
+    //     covidYes,
+    //     covidNo,
+    //     covidWhen,
+    //     vaccinatedYes,
+    //     vaccinatedNo,
+    //     vaccinatedLast,
+    //   })
+    // );
+
     navigate('/redberrian-insights');
   };
 
@@ -202,3 +241,13 @@ const CovidInput = () => {
 };
 
 export default CovidInput;
+
+// const office = officeRef.current.checked || '';
+// const home = homeRef.current.checked || '';
+// const hybrid = hybridRef.current.checked || '';
+// const covidYes = yesCovid.current.checked || '';
+// const covidNo = noCovid.current.checked || '';
+// const covidWhen = whenCovid.current.value || '';
+// const vaccinatedYes = yesVaccinated.current.checked || '';
+// const vaccinatedNo = noVaccinated.current.checked || '';
+// const vaccinatedLast = lastVaccinated.current.value || '';

@@ -13,9 +13,8 @@
   box-sizing: border-box;
 }
 
-body {
+body,
+html {
   width: 1920px;
   height: 1080px;
-  /* display: flex; */
-  /* background-image: var(--primary-bg); */
 }

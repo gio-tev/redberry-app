@@ -6,6 +6,8 @@ import styles from './TechnicalInput.module.css';
 import Remove from '../../assets/Remove.png';
 
 const TechnicalInput = () => {
+  // const stored = JSON.parse(window.localStorage.getItem('selected'));
+
   const { dispatch } = useContext(AppContext);
 
   const [skills, setSkills] = useState([]);
@@ -105,6 +107,8 @@ const TechnicalInput = () => {
         skills: modifiedDataForSend,
       },
     });
+
+    // window.localStorage.setItem('selected', JSON.stringify(selectedSkills));
 
     navigate('/covid');
   };

@@ -5,6 +5,7 @@ import Pagination from './Pagination';
 import styles from './PersonalInput.module.css';
 
 const PersonalInput = () => {
+  // const stored = JSON.parse(window.localStorage.getItem('personal'));
   const { dispatch } = useContext(AppContext);
 
   const [name, setName] = useState('');
@@ -85,6 +86,11 @@ const PersonalInput = () => {
         phone: phoneNumber,
       },
     });
+    // setActiveTwo(true);
+    // window.localStorage.setItem(
+    //   'personal',
+    //   JSON.stringify({ name, lastName, email, phoneNumber })
+    // );
 
     // Send data to global state
     navigate('/technical-skillset');
@@ -130,6 +136,7 @@ const PersonalInput = () => {
       />
       {!phoneNumberIsValid && <p>* Invalid phone number</p>}
       <Pagination
+        // activeTwo={activeTwo}
         className={styles['custom-pagination']}
         onBack={handleBackwardClick}
         onNext={handleForwardClick}

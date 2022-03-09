@@ -1,12 +1,11 @@
 .card {
   display: flex;
+  min-height: min-content;
+  justify-content: stretch;
+  /* height: 100%; */
 }
 
-/* .card .description-side {
-  display: flex;
-  justify-content: center;
-  width: 50%;
-  height: 100vh;
-
-  background-image: var(--primary-bg);
-} */
+.card > * {
+  flex-grow: 0;
+  /* border: 1px solid red; */
+}

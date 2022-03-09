@@ -7,6 +7,9 @@
   left: 50%;
   transform: translateX(-50%);
 }
+.pagination span {
+  cursor: pointer;
+}
 
 .pagination-link {
   width: 1.3rem;
