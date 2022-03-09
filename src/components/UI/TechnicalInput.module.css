@@ -64,3 +64,12 @@ form p {
   color: var(--redberry-red);
   padding-left: 2.5rem;
 }
+
+form select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url(../../assets/Vector.png);
+  background-repeat: no-repeat;
+  background-position: 95% 55%;
+}

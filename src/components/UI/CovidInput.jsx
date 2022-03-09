@@ -79,25 +79,54 @@ const CovidInput = () => {
       vaccinated_at: '',
     };
 
-    if (officeRef.current.checked)
+    let office,
+      home,
+      hybrid,
+      covidYes,
+      covidNo,
+      covidWhen,
+      vaccinatedYes,
+      vaccinatedNo,
+      vaccinatedLast;
+
+    if (officeRef.current.checked) {
       modifiedCovidDataForSend.work_preference = officeRef.current.id;
+      office = officeRef.current.checked;
+    }
 
-    if (homeRef.current.checked)
+    if (homeRef.current.checked) {
       modifiedCovidDataForSend.work_preference = homeRef.current.id;
-    if (hybridRef.current.checked)
+      home = homeRef.current.checked;
+    }
+    if (hybridRef.current.checked) {
       modifiedCovidDataForSend.work_preference = hybridRef.current.id;
+      hybrid = hybridRef.current.checked;
+    }
 
-    if (yesCovid.current.checked) modifiedCovidDataForSend.had_covid = true;
-    if (noCovid.current.checked) modifiedCovidDataForSend.had_covid = false;
-    if (yesCovid.current.checked && whenCovid.current.value)
+    if (yesCovid.current.checked) {
+      modifiedCovidDataForSend.had_covid = true;
+      covidYes = yesCovid.current.checked;
+    }
+    if (noCovid.current.checked) {
+      modifiedCovidDataForSend.had_covid = false;
+      covidNo = noCovid.current.checked;
+    }
+    if (yesCovid.current.checked && whenCovid.current.value) {
       modifiedCovidDataForSend.had_covid_at = whenCovid.current.value;
-
-    if (yesVaccinated.current.checked)
+      covidWhen = whenCovid.current.value;
+    }
+    if (yesVaccinated.current.checked) {
       modifiedCovidDataForSend.vaccinated = true;
-    if (noVaccinated.current.checked)
+      vaccinatedYes = yesVaccinated.current.checked;
+    }
+    if (noVaccinated.current.checked) {
       modifiedCovidDataForSend.vaccinated = false;
-    if (yesVaccinated.current.checked && lastVaccinated.current.value)
+      vaccinatedNo = noVaccinated.current.checked;
+    }
+    if (yesVaccinated.current.checked && lastVaccinated.current.value) {
       modifiedCovidDataForSend.vaccinated_at = lastVaccinated.current.value;
+      vaccinatedLast = lastVaccinated.current.value;
+    }
 
     dispatch({
       type: 'COVID_INPUT',
@@ -109,30 +138,6 @@ const CovidInput = () => {
         vaccinated_at: modifiedCovidDataForSend.vaccinated_at,
       },
     });
-
-    let office,
-      home,
-      hybrid,
-      covidYes,
-      covidNo,
-      covidWhen,
-      vaccinatedYes,
-      vaccinatedNo,
-      vaccinatedLast;
-
-    if (officeRef.current.checked) office = officeRef.current.checked;
-    if (homeRef.current.checked) home = homeRef.current.checked;
-    if (hybridRef.current.checked) hybrid = hybridRef.current.checked;
-    if (yesCovid.current.checked) covidYes = yesCovid.current.checked;
-    if (noCovid.current.checked) covidNo = noCovid.current.checked;
-    if (yesCovid.current.checked && whenCovid.current.value)
-      covidWhen = whenCovid.current.value;
-    if (yesVaccinated.current.checked)
-      vaccinatedYes = yesVaccinated.current.checked;
-    if (noVaccinated.current.checked)
-      vaccinatedNo = noVaccinated.current.checked;
-    if (yesVaccinated.current.checked && lastVaccinated.current.value)
-      vaccinatedLast = lastVaccinated.current.value;
 
     window.localStorage.setItem(
       'covid',

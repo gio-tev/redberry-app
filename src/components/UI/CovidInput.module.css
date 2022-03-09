@@ -38,6 +38,11 @@
   line-height: 17px;
 }
 
+input[type='date']::-webkit-calendar-picker-indicator {
+  background-image: url(../../assets/Calendar.png);
+  padding: 1.2rem;
+}
+
 .custom-pagination {
   padding-bottom: 5rem;
   padding-left: 15rem;

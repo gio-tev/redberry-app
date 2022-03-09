@@ -7,9 +7,10 @@ import styles from './SubmittedApplications.module.css';
 
 const SubmittedApplications = () => {
   const [applications, setApplications] = useState([]);
-  const [hidden, setHidden] = useState({});
 
   const [titles, setTitles] = useState([]);
+
+  const [hidden, setHidden] = useState({});
 
   useEffect(() => {
     const getApplications = async () => {

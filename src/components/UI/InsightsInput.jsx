@@ -49,15 +49,25 @@ const InsightsInput = () => {
       something_special: '',
     };
 
-    if (yesAttendRef.current.checked)
+    let attendYes, attendNo, aboutSpeak, aboutSpecial;
+
+    if (yesAttendRef.current.checked) {
       modifiedInsightsDataForSend.will_organize_devtalk = true;
-    if (noAttendRef.current.checked)
+      attendYes = yesAttendRef.current.checked;
+    }
+    if (noAttendRef.current.checked) {
       modifiedInsightsDataForSend.will_organize_devtalk = false;
-    if (yesAttendRef.current.checked && speakAboutRef.current.value)
+      attendNo = noAttendRef.current.checked;
+    }
+    if (yesAttendRef.current.checked && speakAboutRef.current.value) {
       modifiedInsightsDataForSend.devtalk_topic = speakAboutRef.current.value;
-    if (somethingSpecialRef.current.value)
+      aboutSpeak = speakAboutRef.current.value;
+    }
+    if (somethingSpecialRef.current.value) {
       modifiedInsightsDataForSend.something_special =
         somethingSpecialRef.current.value;
+      aboutSpecial = somethingSpecialRef.current.value;
+    }
 
     dispatch({
       type: 'INSIGHTS_INPUT',
@@ -68,15 +78,6 @@ const InsightsInput = () => {
         something_special: modifiedInsightsDataForSend.something_special,
       },
     });
-
-    let attendYes, attendNo, aboutSpeak, aboutSpecial;
-
-    if (yesAttendRef.current.checked) attendYes = yesAttendRef.current.checked;
-    if (noAttendRef.current.checked) attendNo = noAttendRef.current.checked;
-    if (yesAttendRef.current.checked && speakAboutRef.current.value)
-      aboutSpeak = speakAboutRef.current.value;
-    if (somethingSpecialRef.current.value)
-      aboutSpecial = somethingSpecialRef.current.value;
 
     window.localStorage.setItem(
       'insights',
