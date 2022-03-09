@@ -6,7 +6,7 @@ import styles from './InsightsInput.module.css';
 
 const InsightsInput = () => {
   const stored = JSON.parse(window.localStorage.getItem('insights'));
-  console.log(stored);
+
   const { dispatch } = useContext(AppContext);
 
   const [yesAttend, setYesAttend] = useState(false);

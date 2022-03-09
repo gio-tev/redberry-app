@@ -7,7 +7,7 @@ import Remove from '../../assets/Remove.png';
 
 const TechnicalInput = () => {
   const stored = JSON.parse(window.localStorage.getItem('selected'));
-  console.log(stored);
+
   const { dispatch } = useContext(AppContext);
 
   const [skills, setSkills] = useState([]);
@@ -122,7 +122,6 @@ const TechnicalInput = () => {
       </select>
 
       <input
-        // className={styles.input}
         ref={inputRef}
         type="number"
         placeholder="Experience Duration in Years"

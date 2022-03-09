@@ -18,6 +18,7 @@ const TechnicalSkillset = () => {
           </div>
         </div>
       </InputSide>
+
       <DescriptionSide className={styles.side}>
         <Title>Redberry Origins</Title>
         <Description>

@@ -1,21 +1,11 @@
 @import '../index.css';
 
 .insights-container {
-  /* border: 1px solid red; */
-
-  /* display: flex;
-  justify-content: center; */
-
-  /* position: absolute; */
-  /* width: 455px; */
-  /* width: 65rem; */
   width: 55rem;
-  /* top: 350px; */
 }
 
 .inputs {
   width: 100%;
-  /* justify-self: center; */
 }
 
 .insights-container textarea[id='1'] {

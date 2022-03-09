@@ -1,18 +1,14 @@
 @import '../index.css';
 
 .container {
-  /* position: absolute; */
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
   width: 1920px;
-  height: 1080px;
-  /* height: auto; */
-  /* background-color: black; */
+  height: 2180px;
   background-image: var(--primary-bg);
   background-size: cover;
-  /* border: 5px solid red; */
 }
 
 .container h1 {
@@ -51,10 +47,7 @@
   display: flex;
   flex-wrap: wrap;
   padding: 3rem 5rem 0 5rem;
-  /* height: 1542px; */
   border: 1px solid var(--redberry-red);
-
-  /* background-color: var(--color-white); */
 }
 
 .application-content h2 {
@@ -72,12 +65,10 @@
 .sub-input {
   width: 50%;
   margin-bottom: 5rem;
-  /* border: 1px solid red; */
   list-style-type: none;
 }
 
 .application-content h3 {
-  /* border: 1px solid red; */
   width: 450px;
   height: 2.5rem;
   margin-top: 1rem;
@@ -86,7 +77,6 @@
   font-weight: normal;
   font-size: 18px;
   line-height: 22px;
-  /* border: 1px solid red; */
   margin-bottom: 1rem;
 }
 
@@ -105,9 +95,7 @@
   justify-content: space-between;
   padding: 1.5rem;
   width: 17rem;
-
   height: 42px;
-
   font-family: Montserrat;
   font-style: italic;
   font-weight: normal;

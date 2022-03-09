@@ -18,6 +18,7 @@ const Covid = () => {
           </div>
         </div>
       </InputSide>
+
       <DescriptionSide className={styles.side}>
         <Title className={styles['custom-title']}>
           Redberry Covid Policies

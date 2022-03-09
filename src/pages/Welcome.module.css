@@ -5,8 +5,6 @@
   justify-content: center;
   width: 1920px;
   height: 1080px;
-  /* width: 100vw;
-  height: 100vh; */
   background-image: var(--primary-bg);
   background-size: cover;
 }
@@ -16,8 +14,6 @@
   position: fixed;
   width: 1920px;
   height: 1080px;
-  /* width: 100vw;
-  height: 100vh; */
   left: 0px;
   top: 0px;
   background-image: url('../assets/stars.png');
@@ -42,7 +38,6 @@
   position: absolute;
   width: 395px;
   height: 79px;
-  /* left: 754px; */
   top: 492px;
   font-family: Montserrat;
   font-style: normal;
@@ -62,9 +57,6 @@
   position: absolute;
   width: 338px;
   height: 66px;
-  /* border: 1px solid red; */
-  /* left: 795px; */
-  /* top: 589px; */
   top: 610px;
   font-family: Montserrat;
   font-style: normal;

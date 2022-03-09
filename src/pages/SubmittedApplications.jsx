@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react';
-
-import styles from './SubmittedApplications.module.css';
 import Calendar from '../assets/Calendar.png';
 import Up from '../assets/Up.png';
 import Down from '../assets/Down.png';
 import { v4 as uuidv4 } from 'uuid';
+import styles from './SubmittedApplications.module.css';
 
 const SubmittedApplications = () => {
   const [applications, setApplications] = useState([]);
@@ -15,7 +14,7 @@ const SubmittedApplications = () => {
   useEffect(() => {
     const getApplications = async () => {
       const response = await fetch(
-        'https://bootcamp-2022.devtest.ge/api/applications?token=1a9c3663-94ca-4525-9526-39b6c8c1ec06'
+        'https://bootcamp-2022.devtest.ge/api/applications?token=5f1b83de-5a26-4837-b7fd-6b8f70fec29b'
       );
       const data = await response.json();
       setApplications(data);
@@ -37,10 +36,6 @@ const SubmittedApplications = () => {
   const toggleContent = index => {
     setHidden({ ...hidden, [index]: !hidden[index] });
   };
-
-  if (applications.length === 0) {
-    return <h1>Applications not found.</h1>;
-  }
 
   return (
     <div className={styles.container}>
