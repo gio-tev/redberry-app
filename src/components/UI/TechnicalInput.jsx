@@ -16,6 +16,8 @@ const TechnicalInput = () => {
   const [sameSkills, setSameSkills] = useState(false);
   const [noSkill, setNoSkill] = useState(false);
 
+  const [placeholder, setPlaceHolder] = useState('default');
+
   const selectedRef = useRef();
   const inputRef = useRef();
 
@@ -41,9 +43,9 @@ const TechnicalInput = () => {
       if (skill.title === selectedRef.current.value) {
         sameSkills = true;
         setSameSkills(true);
-      } else setSameSkills(false);
+      }
     });
-
+    // else setSameSkills(false);
     if (sameSkills) return;
 
     if (!inputRef.current.value) {
@@ -51,23 +53,18 @@ const TechnicalInput = () => {
     } else setInputRequired(false);
 
     setSelectedSkills(prevState => {
-      if (prevState) {
-        return [
-          ...prevState,
-          {
-            title: selectedRef.current.value,
-            experience: inputRef.current.value,
-          },
-        ];
-      } else {
-        return [
-          {
-            title: selectedRef.current.value,
-            experience: inputRef.current.value,
-          },
-        ];
-      }
+      return [
+        ...prevState,
+        {
+          title: selectedRef.current.value,
+          experience: inputRef.current.value,
+        },
+      ];
     });
+  };
+
+  const handleChange = e => {
+    setPlaceHolder(e.target.value);
   };
 
   const handleRemoveSkill = e => {
@@ -115,9 +112,21 @@ const TechnicalInput = () => {
 
   return (
     <form onSubmit={handleSubmit} noValidate>
-      <select ref={selectedRef}>
+      <select
+        ref={selectedRef}
+        onChange={handleChange}
+        defaultValue={placeholder}
+      >
+        <option value="default" disabled hidden>
+          Skills
+        </option>
+
         {skills.map(skill => {
-          return <option key={skill.id}>{skill.title}</option>;
+          return (
+            <option key={skill.id} value={skill.title}>
+              {skill.title}
+            </option>
+          );
         })}
       </select>
 
