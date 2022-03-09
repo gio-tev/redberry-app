@@ -232,6 +232,8 @@ const CovidInput = () => {
             className={styles.test}
             type="date"
             defaultValue={stored ? stored?.covidWhen : ''}
+            placeholder="Date"
+            required
           />
           {whenCovidNotChecked && <p>Please select date</p>}
         </div>
@@ -272,6 +274,8 @@ const CovidInput = () => {
             ref={lastVaccinated}
             type="date"
             defaultValue={stored ? stored?.vaccinatedLast : ''}
+            placeholder="Date"
+            required
           />
           {lastVaccinatedNotChecked && <p>Please select date</p>}
         </div>
