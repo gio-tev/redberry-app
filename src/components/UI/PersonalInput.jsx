@@ -5,22 +5,25 @@ import Pagination from './Pagination';
 import styles from './PersonalInput.module.css';
 
 const PersonalInput = () => {
-  // const stored = JSON.parse(window.localStorage.getItem('personal'));
+  const stored = JSON.parse(window.localStorage.getItem('personal'));
+
   const { dispatch } = useContext(AppContext);
 
-  const [name, setName] = useState('');
+  const [name, setName] = useState(stored ? stored.name : '');
   const [nameIsEmpty, setNameIsEmpty] = useState(false);
   const [nameIsValid, setNameIsValid] = useState(true);
 
-  const [lastName, setLastName] = useState('');
+  const [lastName, setLastName] = useState(stored ? stored.lastName : '');
   const [lastNameIsEmpty, setLastNameIsEmpty] = useState(false);
   const [lastNameIsValid, setLastNameIsValid] = useState(true);
 
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState(stored ? stored.email : '');
   const [emailIsEmpty, setEmailIsEmpty] = useState(false);
   const [emailIsValid, setEmailIsValid] = useState(true);
 
-  const [phoneNumber, setPhoneNumber] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState(
+    stored ? stored.phoneNumber : ''
+  );
   const [phoneNumberIsValid, setPhoneNumberIsValid] = useState(true);
 
   const navigate = useNavigate();
@@ -76,7 +79,7 @@ const PersonalInput = () => {
     ) {
       return setPhoneNumberIsValid(false);
     } else setPhoneNumberIsValid(true);
-    ////////////////////////////////////////////////////////////////////////////
+
     dispatch({
       type: 'PERSONAL_INPUT',
       payload: {
@@ -86,13 +89,12 @@ const PersonalInput = () => {
         phone: phoneNumber,
       },
     });
-    // setActiveTwo(true);
-    // window.localStorage.setItem(
-    //   'personal',
-    //   JSON.stringify({ name, lastName, email, phoneNumber })
-    // );
 
-    // Send data to global state
+    window.localStorage.setItem(
+      'personal',
+      JSON.stringify({ name, lastName, email, phoneNumber })
+    );
+
     navigate('/technical-skillset');
   };
 

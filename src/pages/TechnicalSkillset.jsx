@@ -18,7 +18,7 @@ const TechnicalSkillset = () => {
           </div>
         </div>
       </InputSide>
-      <DescriptionSide>
+      <DescriptionSide className={styles.side}>
         <Title>Redberry Origins</Title>
         <Description>
           As we said, Redberry has been on the field for quite some time now,

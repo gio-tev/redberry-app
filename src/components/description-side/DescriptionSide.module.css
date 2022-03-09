@@ -5,8 +5,8 @@
   justify-content: center;
 
   width: 50%;
-  height: 1080px;
-  /* flex-grow: 1; */
+  /* height: 1080px; */
+
   background-image: var(--primary-bg);
-  /* background-repeat: repeat-y; */
+  background-repeat: repeat-y;
 }

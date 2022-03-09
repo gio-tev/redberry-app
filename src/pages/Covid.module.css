@@ -42,3 +42,7 @@ box-sizing: border-box; */
 .custom-title {
   font-size: 62px;
 }
+
+.side {
+  height: 1300px;
+}

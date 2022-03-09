@@ -6,12 +6,12 @@ import styles from './TechnicalInput.module.css';
 import Remove from '../../assets/Remove.png';
 
 const TechnicalInput = () => {
-  // const stored = JSON.parse(window.localStorage.getItem('selected'));
-
+  const stored = JSON.parse(window.localStorage.getItem('selected'));
+  console.log(stored);
   const { dispatch } = useContext(AppContext);
 
   const [skills, setSkills] = useState([]);
-  const [selectedSkills, setSelectedSkills] = useState([]);
+  const [selectedSkills, setSelectedSkills] = useState(stored ? stored : []);
   const [inputRequired, setInputRequired] = useState(false);
   const [sameSkills, setSameSkills] = useState(false);
   const [noSkill, setNoSkill] = useState(false);
@@ -108,7 +108,7 @@ const TechnicalInput = () => {
       },
     });
 
-    // window.localStorage.setItem('selected', JSON.stringify(selectedSkills));
+    window.localStorage.setItem('selected', JSON.stringify(selectedSkills));
 
     navigate('/covid');
   };

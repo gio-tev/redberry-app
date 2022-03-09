@@ -35,9 +35,8 @@ const Submit = () => {
 
     setSubmitted(true);
 
-    // window.localStorage.clear();
-
     setTimeout(() => {
+      window.localStorage.clear();
       navigate('/');
     }, 3000);
   };

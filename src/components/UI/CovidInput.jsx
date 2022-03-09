@@ -6,7 +6,6 @@ import styles from './CovidInput.module.css';
 
 const CovidInput = () => {
   const stored = JSON.parse(window.localStorage.getItem('covid'));
-  console.log(stored);
 
   const { dispatch } = useContext(AppContext);
 
@@ -82,6 +81,7 @@ const CovidInput = () => {
 
     if (officeRef.current.checked)
       modifiedCovidDataForSend.work_preference = officeRef.current.id;
+
     if (homeRef.current.checked)
       modifiedCovidDataForSend.work_preference = homeRef.current.id;
     if (hybridRef.current.checked)
@@ -110,44 +110,44 @@ const CovidInput = () => {
       },
     });
 
-    // let office;
-    // let home;
-    // let hybrid;
-    // let covidYes;
-    // let covidNo;
-    // let covidWhen;
-    // let vaccinatedYes;
-    // let vaccinatedNo;
-    // let vaccinatedLast;
+    let office,
+      home,
+      hybrid,
+      covidYes,
+      covidNo,
+      covidWhen,
+      vaccinatedYes,
+      vaccinatedNo,
+      vaccinatedLast;
 
-    // if (officeRef.current.checked) office = officeRef.current.checked;
-    // if (homeRef.current.checked) home = homeRef.current.checked;
-    // if (hybridRef.current.checked) hybrid = hybridRef.current.checked;
-    // if (yesCovid.current.checked) covidYes = yesCovid.current.checked;
-    // if (noCovid.current.checked) covidNo = noCovid.current.checked;
-    // if (yesCovid.current.checked && whenCovid.current.value)
-    //   covidWhen = whenCovid.current.value;
-    // if (yesVaccinated.current.checked)
-    //   vaccinatedYes = yesVaccinated.current.checked;
-    // if (noVaccinated.current.checked)
-    //   vaccinatedNo = noVaccinated.current.checked;
-    // if (yesVaccinated.current.checked && lastVaccinated.current.value)
-    //   vaccinatedLast = lastVaccinated.current.value;
+    if (officeRef.current.checked) office = officeRef.current.checked;
+    if (homeRef.current.checked) home = homeRef.current.checked;
+    if (hybridRef.current.checked) hybrid = hybridRef.current.checked;
+    if (yesCovid.current.checked) covidYes = yesCovid.current.checked;
+    if (noCovid.current.checked) covidNo = noCovid.current.checked;
+    if (yesCovid.current.checked && whenCovid.current.value)
+      covidWhen = whenCovid.current.value;
+    if (yesVaccinated.current.checked)
+      vaccinatedYes = yesVaccinated.current.checked;
+    if (noVaccinated.current.checked)
+      vaccinatedNo = noVaccinated.current.checked;
+    if (yesVaccinated.current.checked && lastVaccinated.current.value)
+      vaccinatedLast = lastVaccinated.current.value;
 
-    // window.localStorage.setItem(
-    //   'covid',
-    //   JSON.stringify({
-    //     office,
-    //     home,
-    //     hybrid,
-    //     covidYes,
-    //     covidNo,
-    //     covidWhen,
-    //     vaccinatedYes,
-    //     vaccinatedNo,
-    //     vaccinatedLast,
-    //   })
-    // );
+    window.localStorage.setItem(
+      'covid',
+      JSON.stringify({
+        office,
+        home,
+        hybrid,
+        covidYes,
+        covidNo,
+        covidWhen,
+        vaccinatedYes,
+        vaccinatedNo,
+        vaccinatedLast,
+      })
+    );
 
     navigate('/redberrian-insights');
   };
@@ -157,17 +157,35 @@ const CovidInput = () => {
       <div className={styles.inputs}>
         <h2>How would you prefer to work?</h2>
         <div className={styles['input-label-container']}>
-          <input ref={officeRef} type="radio" id="from_office" name="work" />
+          <input
+            ref={officeRef}
+            type="radio"
+            id="from_office"
+            name="work"
+            defaultChecked={stored ? stored?.office : ''}
+          />
           <label htmlFor="from_office">From Sairme Office</label>
         </div>
 
         <div className={styles['input-label-container']}>
-          <input ref={homeRef} type="radio" id="from_home" name="work" />
+          <input
+            ref={homeRef}
+            type="radio"
+            id="from_home"
+            name="work"
+            defaultChecked={stored ? stored?.home : ''}
+          />
           <label htmlFor="from_home">From Home</label>
         </div>
 
         <div className={styles['input-label-container']}>
-          <input ref={hybridRef} type="radio" id="hybrid" name="work" />
+          <input
+            ref={hybridRef}
+            type="radio"
+            id="hybrid"
+            name="work"
+            defaultChecked={stored ? stored?.hybrid : ''}
+          />
           <label htmlFor="hybrid">Hybrid</label>
         </div>
         {noPreference && <p>Please select at least one option</p>}
@@ -183,21 +201,33 @@ const CovidInput = () => {
             type="radio"
             id="yes"
             name="covid"
+            defaultChecked={stored ? stored?.covidYes : ''}
           />
           <label htmlFor="yes">Yes</label>
         </div>
 
         <div className={styles['input-label-container']}>
-          <input ref={noCovid} type="radio" id="no" name="covid" />
+          <input
+            ref={noCovid}
+            type="radio"
+            id="no"
+            name="covid"
+            defaultChecked={stored ? stored?.covidNo : ''}
+          />
           <label htmlFor="no">No</label>
         </div>
         {covidNotChecked && <p>Please select at least one option</p>}
       </div>
 
-      {hadCovid && (
+      {(hadCovid || stored?.covidYes) && (
         <div className={styles.inputs}>
           <h2>When?</h2>
-          <input ref={whenCovid} className={styles.test} type="date" />
+          <input
+            ref={whenCovid}
+            className={styles.test}
+            type="date"
+            defaultValue={stored ? stored?.covidWhen : ''}
+          />
           {whenCovidNotChecked && <p>Please select date</p>}
         </div>
       )}
@@ -212,21 +242,32 @@ const CovidInput = () => {
             type="radio"
             id="yess"
             name="vaccinated"
+            defaultChecked={stored ? stored?.vaccinatedYes : ''}
           />
           <label htmlFor="yess">Yes</label>
         </div>
 
         <div className={styles['input-label-container']}>
-          <input ref={noVaccinated} type="radio" id="noo" name="vaccinated" />
+          <input
+            ref={noVaccinated}
+            type="radio"
+            id="noo"
+            name="vaccinated"
+            defaultChecked={stored ? stored?.vaccinatedNo : ''}
+          />
           <label htmlFor="noo">No</label>
         </div>
         {vaccinatedNotChecked && <p>Please select at least one option</p>}
       </div>
 
-      {vaccinated && (
+      {(vaccinated || stored?.vaccinatedYes) && (
         <div className={styles.inputs}>
           <h2>When did you get your last covid vaccine?</h2>
-          <input ref={lastVaccinated} type="date" />
+          <input
+            ref={lastVaccinated}
+            type="date"
+            defaultValue={stored ? stored?.vaccinatedLast : ''}
+          />
           {lastVaccinatedNotChecked && <p>Please select date</p>}
         </div>
       )}
@@ -241,13 +282,3 @@ const CovidInput = () => {
 };
 
 export default CovidInput;
-
-// const office = officeRef.current.checked || '';
-// const home = homeRef.current.checked || '';
-// const hybrid = hybridRef.current.checked || '';
-// const covidYes = yesCovid.current.checked || '';
-// const covidNo = noCovid.current.checked || '';
-// const covidWhen = whenCovid.current.value || '';
-// const vaccinatedYes = yesVaccinated.current.checked || '';
-// const vaccinatedNo = noVaccinated.current.checked || '';
-// const vaccinatedLast = lastVaccinated.current.value || '';

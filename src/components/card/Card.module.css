@@ -1,11 +1,8 @@
 .card {
   display: flex;
-  min-height: min-content;
-  justify-content: stretch;
+  /* min-height: 100vh; */
+  /* height: calc(100vh + mix-content); */
+  /* min-height: min-content; */
+  /* justify-content: stretch; */
   /* height: 100%; */
-}
-
-.card > * {
-  flex-grow: 0;
-  /* border: 1px solid red; */
 }

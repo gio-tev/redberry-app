@@ -20,7 +20,7 @@ const PersonalInformation = () => {
         </div>
       </InputSide>
 
-      <DescriptionSide>
+      <DescriptionSide className={styles.side}>
         <Title>Redberry Origins</Title>
         <Description>
           You watch “What? Where? When?” Yeah. Our founders used to play it.

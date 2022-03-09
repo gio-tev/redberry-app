@@ -33,3 +33,7 @@
   color: var(--redberry-red);
   padding-left: 2.5rem;
 }
+
+.side {
+  height: 1080px;
+}

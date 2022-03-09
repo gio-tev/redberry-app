@@ -3,8 +3,8 @@ import InputSide from '../components/input-side/InputSide';
 import DescriptionSide from '../components/description-side/DescriptionSide';
 import Description from '../components/UI/Description';
 import Title from '../components/UI/Title';
-import styles from './Covid.module.css';
 import CovidInput from '../components/UI/CovidInput';
+import styles from './Covid.module.css';
 
 const Covid = () => {
   return (
@@ -18,11 +18,11 @@ const Covid = () => {
           </div>
         </div>
       </InputSide>
-      <DescriptionSide>
+      <DescriptionSide className={styles.side}>
         <Title className={styles['custom-title']}>
           Redberry Covid Policies
         </Title>
-        <Description className>
+        <Description>
           As this infamous pandemic took over the world, we adjusted our working
           practices so that our employees can be as safe and comfortable as
           possible. We have a hybrid work environment, so you can either work

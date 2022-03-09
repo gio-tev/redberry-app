@@ -1,7 +1,7 @@
 import styles from './Description.module.css';
 
 const Description = props => {
-  return <p className={styles.description}>{props.children}</p>;
+  return <div className={styles.description}>{props.children}</div>;
 };
 
 export default Description;

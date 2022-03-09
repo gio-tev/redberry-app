@@ -16,7 +16,7 @@ const RedberrianInsights = () => {
           <div className={styles.inputs}>{<InsightsInput />}</div>
         </div>
       </InputSide>
-      <DescriptionSide>
+      <DescriptionSide className={styles.side}>
         <Title className={styles['custom-title']}>Redberrian Insights</Title>
         <Description>
           We were soo much fun before the pandemic started! Parties almost every

@@ -5,6 +5,8 @@ import Pagination from './Pagination';
 import styles from './InsightsInput.module.css';
 
 const InsightsInput = () => {
+  const stored = JSON.parse(window.localStorage.getItem('insights'));
+  console.log(stored);
   const { dispatch } = useContext(AppContext);
 
   const [yesAttend, setYesAttend] = useState(false);
@@ -66,7 +68,26 @@ const InsightsInput = () => {
         something_special: modifiedInsightsDataForSend.something_special,
       },
     });
-    // Send data to global state////////////////////////////////////////////////
+
+    let attendYes, attendNo, aboutSpeak, aboutSpecial;
+
+    if (yesAttendRef.current.checked) attendYes = yesAttendRef.current.checked;
+    if (noAttendRef.current.checked) attendNo = noAttendRef.current.checked;
+    if (yesAttendRef.current.checked && speakAboutRef.current.value)
+      aboutSpeak = speakAboutRef.current.value;
+    if (somethingSpecialRef.current.value)
+      aboutSpecial = somethingSpecialRef.current.value;
+
+    window.localStorage.setItem(
+      'insights',
+      JSON.stringify({
+        attendYes,
+        attendNo,
+        aboutSpeak,
+        aboutSpecial,
+      })
+    );
+
     navigate('/submit');
   };
 
@@ -81,21 +102,33 @@ const InsightsInput = () => {
             type="radio"
             id="yes"
             name="Devtalks"
+            defaultChecked={stored ? stored?.attendYes : ''}
           />
           <label htmlFor="yes">Yes</label>
         </div>
 
         <div className={styles['input-label-container']}>
-          <input ref={noAttendRef} type="radio" id="no" name="Devtalks" />
+          <input
+            ref={noAttendRef}
+            type="radio"
+            id="no"
+            name="Devtalks"
+            defaultChecked={stored ? stored?.attendNo : ''}
+          />
           <label htmlFor="no">No</label>
         </div>
         {attendDevNotChecked && <p>Please select at least one option</p>}
       </div>
 
-      {yesAttend && (
+      {(yesAttend || stored?.attendYes) && (
         <div className={styles.inputs}>
           <h2>What would you speak about at Devtalk?</h2>
-          <textarea ref={speakAboutRef} placeholder="I would..." id="1" />
+          <textarea
+            ref={speakAboutRef}
+            placeholder={'I would...'}
+            id="1"
+            defaultValue={stored ? stored?.aboutSpeak : ''}
+          />
           {noSpeakAboutValue && (
             <p className={styles.paragraph}>
               Please tell us what would you speak about
@@ -106,7 +139,12 @@ const InsightsInput = () => {
 
       <div className={styles.inputs}>
         <h2>Tell us something special</h2>
-        <textarea ref={somethingSpecialRef} placeholder="I..." id="2" />
+        <textarea
+          ref={somethingSpecialRef}
+          placeholder={'I ...'}
+          id="2"
+          defaultValue={stored ? stored?.aboutSpecial : ''}
+        />
         {noSpecialValue && (
           <p className={styles.paragraph}>
             Please tell us something about yourself

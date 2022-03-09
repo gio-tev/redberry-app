@@ -25,12 +25,6 @@
   line-height: 17px;
 }
 
-/* .inputs-container p {
-  font-family: Montserrat;
-  font-style: italic;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 13px;
-  color: var(--redberry-red);
-  padding-left: 2.5rem;
-} */
+.side {
+  height: 1080px;
+}
