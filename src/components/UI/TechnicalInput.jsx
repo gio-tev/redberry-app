@@ -43,9 +43,9 @@ const TechnicalInput = () => {
       if (skill.title === selectedRef.current.value) {
         sameSkills = true;
         setSameSkills(true);
-      }
+      } else setSameSkills(false);
     });
-    // else setSameSkills(false);
+
     if (sameSkills) return;
 
     if (!inputRef.current.value) {

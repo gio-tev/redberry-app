@@ -15,7 +15,7 @@ const SubmittedApplications = () => {
   useEffect(() => {
     const getApplications = async () => {
       const response = await fetch(
-        'https://bootcamp-2022.devtest.ge/api/applications?token=5f1b83de-5a26-4837-b7fd-6b8f70fec29b'
+        'https://bootcamp-2022.devtest.ge/api/applications?token=b50bb2d5-2012-4d87-9931-0c88c752cfad'
       );
       const data = await response.json();
       setApplications(data);
