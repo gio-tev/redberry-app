@@ -1,3 +1,7 @@
 .card {
   display: flex;
 }
+
+.card section:nth-child(1) {
+  background-color: white;
+}

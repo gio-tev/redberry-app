@@ -1,0 +1,23 @@
+@import '../../index.css';
+
+.insights-container {
+  width: 100%;
+}
+
+.inputs {
+  width: 100%;
+}
+
+.insights-container textarea[id='1'] {
+  width: 535px;
+  height: 122px;
+  border: 1px solid var(--primary-stroke);
+  padding: 2rem 0 0 1rem;
+}
+
+.insights-container textarea[id='2'] {
+  width: 535px;
+  height: 89px;
+  border: 1px solid var(--primary-stroke);
+  padding: 2rem 0 0 1rem;
+}

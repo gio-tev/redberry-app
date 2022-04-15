@@ -1,0 +1,15 @@
+@import '../../../index.css';
+
+.description {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 48px;
+  position: absolute;
+  top: 195px;
+  width: 705px;
+  height: 606px;
+  padding: 11rem 0 0 0;
+  color: var(--color-white);
+}

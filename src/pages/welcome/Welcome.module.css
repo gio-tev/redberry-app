@@ -1,0 +1,76 @@
+@import '../../index.css';
+
+.welcome {
+  display: flex;
+  justify-content: center;
+  width: 1920px;
+  height: 1080px;
+  background-image: var(--primary-bg);
+  background-size: cover;
+}
+
+.welcome::after {
+  content: '';
+  position: fixed;
+  width: 1920px;
+  height: 1080px;
+  left: 0px;
+  top: 0px;
+  background-image: url('../../assets/stars.png');
+}
+
+.title-welcome {
+  position: absolute;
+  width: 1090px;
+  height: 212px;
+  left: 434px;
+  top: 175px;
+  font-family: Rowdies;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 96px;
+  line-height: 119px;
+  color: var(--redberry-red);
+  z-index: 2;
+}
+
+.btn-primary {
+  position: absolute;
+  width: 395px;
+  height: 79px;
+  top: 492px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  text-align: center;
+  line-height: 29px;
+  background-color: var(--redberry-red);
+  color: var(--color-white);
+  border-radius: 50px;
+  border: none;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.link {
+  position: absolute;
+  width: 338px;
+  height: 66px;
+  top: 610px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 29px;
+  color: var(--color-white);
+  text-align: center;
+  text-decoration-line: underline;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.welcome img {
+  position: absolute;
+  top: 600px;
+}

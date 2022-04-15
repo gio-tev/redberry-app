@@ -1,0 +1,68 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  width: 50%;
+  position: absolute;
+  top: 24rem;
+  padding-left: 8rem;
+}
+
+.form h2 {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.inputs {
+  margin-bottom: 3.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-label-container {
+  margin-bottom: 1rem;
+}
+.input-label-container input {
+  margin-right: 0.5rem;
+}
+
+.input-label-container input,
+.input-label-container label {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+input[type='date']::-webkit-calendar-picker-indicator {
+  background-image: url(../../../assets/Calendar.png);
+  padding: 1.2rem;
+}
+
+input[type='date']::before {
+  color: #111111;
+  content: attr(placeholder);
+}
+input[type='date'] {
+  color: #ffffff;
+}
+input[type='date']:focus,
+input[type='date']:valid {
+  color: #4e4e4e;
+}
+input[type='date']:focus::before,
+input[type='date']:valid::before {
+  content: '' !important;
+}
+
+.custom-pagination {
+  padding-bottom: 5rem;
+  padding-left: 13rem;
+}

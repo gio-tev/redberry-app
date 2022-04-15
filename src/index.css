@@ -13,8 +13,11 @@
   box-sizing: border-box;
 }
 
-body,
-html {
-  width: 1920px;
-  height: 1080px;
+body {
+  background: var(--primary-bg);
+}
+
+#root > main {
+  min-height: 100vh;
+  height: auto;
 }

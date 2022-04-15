@@ -1,12 +1,12 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import AppContextProvider from './store/AppContext';
-import Welcome from './pages/Welcome';
-import PersonalInformation from './pages/PersonalInformation';
-import TechnicalSkillset from './pages/TechnicalSkillset';
-import Covid from './pages/Covid';
-import RedberrianInsights from './pages/RedberrianInsights';
-import Submit from './pages/Submit';
-import SubmittedApplications from './pages/SubmittedApplications';
+import Welcome from './pages/welcome/Welcome';
+import PersonalInformation from './pages/personal-information/PersonalInformation';
+import TechnicalSkillset from './pages/technical-skillset/TechnicalSkillset';
+import Covid from './pages/covid/Covid';
+import RedberrianInsights from './pages/redberrian-insights/RedberrianInsights';
+import Submit from './pages/submit/Submit';
+import SubmittedApplications from './pages/submitted-applications/SubmittedApplications';
 
 function App() {
   return (

@@ -3,7 +3,8 @@ import { createContext, useReducer } from 'react';
 export const AppContext = createContext();
 
 const initialState = {
-  token: 'b50bb2d5-2012-4d87-9931-0c88c752cfad',
+  // token: 'b50bb2d5-2012-4d87-9931-0c88c752cfad',
+  token: '25011515-e94d-4aad-a472-23f5f045761c',
   first_name: '',
   last_name: '',
   email: '',

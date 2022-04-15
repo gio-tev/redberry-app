@@ -1,8 +1,5 @@
-@import '../../index.css';
-
 .description-side {
   display: flex;
   justify-content: center;
   width: 50%;
-  background-image: var(--primary-bg);
 }
